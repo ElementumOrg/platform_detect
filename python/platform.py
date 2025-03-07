@@ -1,6 +1,10 @@
 import os
 
-from ctypes import c_int, cdll
+try:
+    from ctypes import c_int, cdll
+    ctypes_is_supported = True
+except:
+    ctypes_is_supported = False
 
 platforms = {
     'android': [
@@ -31,6 +35,8 @@ platforms = {
 # Proper library should return '42' as a result to a 'int test()' method call.
 # We give preference to a 'higher' arch (x64 over x96, arm64 over armv7, etc).
 def detect_platform():
+    if not ctypes_is_supported:
+        return None
     for system in platforms.keys():
         for arch in platforms.get(system):
             try:
