@@ -24,6 +24,17 @@ print(detect_platform()) # Would show 'linux-x64', for example
 
 ```
 
+Supported platforms
+===================
+
+`detect_platform()` returns one of: `android-arm64`, `android-arm`, `android-x64`, `android-x86`,
+`linux-arm64`, `linux-armv7`, `linux-armv7_softfp`, `linux-armv6`, `linux-x64`, `linux-x86`,
+`windows-x64`, `windows-x86`, `darwin-arm64`, `darwin-x64` (or `None` if no library can be loaded).
+
+Higher architectures are tried first. For example, native Kodi on Apple Silicon detects `darwin-arm64`,
+while an x86_64 Kodi running under Rosetta can only load the x64 library and detects `darwin-x64`.
+The darwin libraries require macOS 13 or newer.
+
 Compile
 =======
 
