@@ -31,3 +31,7 @@ elementum
 /cmd
 
 # Custom shell scripts
+
+# Python bytecode
+__pycache__/
+*.py[cod]

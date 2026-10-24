@@ -26,6 +26,7 @@ platforms = {
         'x86'
     ],
     'darwin': [
+        'arm64',
         'x64'
     ]
 }
